@@ -1,4 +1,6 @@
 <script>
+    import Country from '$lib/country.svelte'
+
     let input = "";
 
     const fetchCountries = (async () => {
@@ -21,7 +23,9 @@
 Input: {input}
 {console.log(fetchCountries)}
 {#each data as country}
-    <p>{country.name.common}</p>
+    {console.log(country)}
+    <Country title={country.name.common}/>
+    <a href={`/countries/${country.name.common}`}>Link -> /countries/{country.name.common}</a>
 {/each}
 {:catch error}
     <p>An error occured!</p>
