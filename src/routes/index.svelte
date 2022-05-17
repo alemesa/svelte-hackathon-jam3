@@ -12,9 +12,6 @@
 
 </script>
 
-<h1>Countries of the world</h1>
-<h2>Hackathon</h2>
-
 <input type="text" placeholder="Search for a country" bind:value={input}/>
 
 {#await fetchCountries}
@@ -30,4 +27,3 @@ Input: {input}
 {:catch error}
     <p>An error occured!</p>
 {/await}
-
