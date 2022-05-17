@@ -1,5 +1,6 @@
 <script>
     import Country from '$lib/country.svelte'
+    import PinnedCountries from '$lib/pinnedCountries.svelte';
 
     let input = "";
 
@@ -12,8 +13,9 @@
 
 </script>
 
-<input type="text" placeholder="Search for a country" bind:value={input}/>
+<PinnedCountries/>
 
+<input type="text" placeholder="Search for a country" bind:value={input}/>
 {#await fetchCountries}
     <p>please wait...</p>
 {:then data}

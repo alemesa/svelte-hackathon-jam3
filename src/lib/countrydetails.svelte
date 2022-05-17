@@ -11,21 +11,21 @@
     // export let flags;
 
   import { pinnedList } from '../pinned.js';
-  export let name;
+  
   export let isPinned;
 
   isPinned = $pinnedList.some((item) => item.country === name.common);
 
-  function pinCountry(name) {
-    const isDuplicate = $pinnedList.some((item) => item.country === name);
+  function pinCountry(code) {
+    const isDuplicate = $pinnedList.some((item) => item.code === code);
 
     if (!isDuplicate) {
-      $pinnedList = [{ country: name }, ...$pinnedList];
+      $pinnedList = [{ code: code }, ...$pinnedList];
     }
   }
 
-  function unpinCountry(name) {
-    $pinnedList = $pinnedList.filter((country) => country.country !== name);
+  function unpinCountry(code) {
+    $pinnedList = $pinnedList.filter((country) => country.code !== code);
   }
 
 </script>
@@ -45,14 +45,14 @@
 
     {console.log($pinnedList)}
     {#each $pinnedList as item}
-      <li>{item.country}</li>
+      <li>{item.code}</li>
     {/each}
   </ul>
 </div>
 
-<button on:click={() => unpinCountry(name.common)}>Unpin it</button>
+<button on:click={() => unpinCountry(data.code)}>Unpin it {data.code}</button>
 
-<button on:click={() => pinCountry(name.common)}>Pin it</button>
+<button on:click={() => pinCountry(data.code)}>Pin it {data.code}</button>
 
 <div class="country-details">
     <img src={data.flags.svg} alt="" height=300px/>
