@@ -14,7 +14,7 @@
   
   export let isPinned;
 
-  isPinned = $pinnedList.some((item) => item.country === name.common);
+  isPinned = $pinnedList.some((item) => item.code === code);
 
   function pinCountry(code) {
     const isDuplicate = $pinnedList.some((item) => item.code === code);
@@ -30,35 +30,20 @@
 
 </script>
 
-<div class="header"><h1>Country Name</h1></div>
-
-<div>
-  <h1>pinned list</h1>
-  <ul>
-    {#if isPinned}
-      IS PINNED
-    {/if}
-
-    {#if !isPinned}
-      NOT PINNED
-    {/if}
-
-    {console.log($pinnedList)}
-    {#each $pinnedList as item}
-      <li>{item.code}</li>
-    {/each}
-  </ul>
+<div class="content-container">
+<div class="header">
+    <h1>Country Name</h1>
+    <div class="btns">
+        <button on:click={() => unpinCountry(data.code)}>Unpin it {data.code}</button>
+        <button on:click={() => pinCountry(data.code)}>Pin it {data.code}</button>
+    </div>
 </div>
-
-<button on:click={() => unpinCountry(data.code)}>Unpin it {data.code}</button>
-
-<button on:click={() => pinCountry(data.code)}>Pin it {data.code}</button>
 
 <div class="country-details">
     <img src={data.flags.svg} alt="" height=300px/>
     <div class="text-details">
-        <p><b>Native Name:</b>{data.name.common}</p>
-        <p><b>Population:</b>{data.population}</p>
+        <p><b>Native Name: </b>{data.name.common}</p>
+        <p><b>Population: </b>{data.population}</p>
         <p><b>Continents: 
         </b>
         {#each data.continents as continent}
@@ -82,19 +67,38 @@
         </p>
     </div>
 </div>
-
+</div>
 <style>
     .header{
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+
+    .btns {
+        display: flex;
+        justify-content: flex-end;
+    }
     .country-details{
         display: flex;
         gap: 3rem;
     }
+    .content-container{
+        margin-left: 1rem;
+    }
     .text-details{
         display: flex;
         flex-direction: column;
+        gap: 1rem;
+        justify-content: center ;
+    }
+
+    img{
+        border: 1px solid black;
+    }
+
+    button {
+        background-color: #C4C4C4;
+        
     }
 </style>

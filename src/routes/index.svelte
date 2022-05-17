@@ -9,7 +9,6 @@
 
 <PinnedCountries/>
 
-{$term}
 {#each $filtered as country}
     <Country title={country.name.common}/>
     <a href={`/countries/${country.cca2}`}>Link -> /countries/{country.cca2}</a>

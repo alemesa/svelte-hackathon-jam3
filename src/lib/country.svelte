@@ -11,7 +11,6 @@
     display: flex;
   }
   .title h1 {
-    border: 1px solid red;
     margin-left: 10px;
   }
 </style>
