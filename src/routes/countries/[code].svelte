@@ -3,13 +3,12 @@
     import CountryDetails from '$lib/countrydetails.svelte'
 
 	 import { page } from '$app/stores';
-import Countrydetails from '../../lib/countrydetails.svelte';
-     console.log($page.params.name)
+     // console.log($page.params.name)
 
 
     const fetchCountry = (async () => {
 		// const response = await fetch('https://restcountries.com/v3.1/all');
-        const response = await fetch(`https://restcountries.com/v3.1/name/${$page.params.name}`)
+        const response = await fetch(`https://restcountries.com/v3.1/alpha/${$page.params.code}`)
         return await response.json();
     })();
 
@@ -28,7 +27,9 @@ import Countrydetails from '../../lib/countrydetails.svelte';
 {#each data as country}
     {console.log(country)}
     <Country title={country.name.common}/>
-    <CountryDetails {...country}/>
+    <CountryDetails data={{name: country.name, population: country.population,
+         continents: country.continents, capital: country.capital, languages: country.languages,
+         currencies: country.currencies, borders: country.borders, flags: country.flags}}/>
 	
 	<code>{JSON.stringify(country, null, 4)}</code>
 {/each}
