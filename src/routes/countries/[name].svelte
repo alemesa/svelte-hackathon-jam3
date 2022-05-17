@@ -1,7 +1,9 @@
 <script>
     import Country from '$lib/country.svelte'
+    import CountryDetails from '$lib/countrydetails.svelte'
 
 	 import { page } from '$app/stores';
+import Countrydetails from '../../lib/countrydetails.svelte';
      console.log($page.params.name)
 
 
@@ -26,6 +28,7 @@
 {#each data as country}
     {console.log(country)}
     <Country title={country.name.common}/>
+    <CountryDetails {...country}/>
 	
 	<code>{JSON.stringify(country, null, 4)}</code>
 {/each}

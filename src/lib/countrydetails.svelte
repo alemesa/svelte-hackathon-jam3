@@ -1,12 +1,12 @@
 <script>
-    export let x;
+    export let name;
 </script>
 
 <div class="header"><h1>Country Name</h1><button>Pin it</button></div>
 <div class="country-details">
     <img src='https://via.placeholder.com/350' alt=""/>
     <div class="text-details">
-        <p><b>Native Name: {''}</b></p>
+        <p><b>Native Name: {name.common}</b></p>
         <p><b>Population: {''}</b></p>
         <p><b>Continents: {''}</b></p>
         <p><b>Capital: {''}</b></p>
