@@ -17,12 +17,9 @@
 {#await fetchCountries}
     <p>please wait...</p>
 {:then data}
-Input: {input}
-{console.log(fetchCountries)}
 {#each data as country}
-    {console.log(country)}
     <Country title={country.name.common}/>
-    <a href={`/countries/${country.name.common}`}>Link -> /countries/{country.name.common}</a>
+    <a href={`/countries/${country.cca2}`}>Link -> /countries/{country.cca2}</a>
 {/each}
 {:catch error}
     <p>An error occured!</p>

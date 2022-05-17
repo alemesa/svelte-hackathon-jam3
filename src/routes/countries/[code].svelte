@@ -22,10 +22,7 @@
 {#await fetchCountry}
     <p>please wait...</p>
 {:then data}
-
-{console.log(fetchCountry)}
 {#each data as country}
-    {console.log(country)}
     <Country title={country.name.common}/>
     <CountryDetails data={{name: country.name, population: country.population,
          continents: country.continents, capital: country.capital, languages: country.languages,
