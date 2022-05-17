@@ -20,7 +20,6 @@
     <p>please wait...</p>
 {:then data}
 {#each data as country}
-    <Country title={country.name.common}/>
     <CountryDetails data={{code: country.cca2 ,name: country.name, population: country.population,
          continents: country.continents, capital: country.capital, languages: country.languages,
          currencies: country.currencies, borders: country.borders, flags: country.flags}}/>
