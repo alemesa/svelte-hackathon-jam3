@@ -16,11 +16,11 @@
 
   isPinned = $pinnedList.some((item) => item.code === code);
 
-  function pinCountry(code) {
+  function pinCountry(code, country) {
     const isDuplicate = $pinnedList.some((item) => item.code === code);
 
     if (!isDuplicate) {
-      $pinnedList = [{ code: code }, ...$pinnedList];
+      $pinnedList = [{ code: code,  title: country.name.common, continents: country.continents, flag:country.flags.svg }, ...$pinnedList];
     }
   }
 
@@ -40,7 +40,7 @@
 </div>
 
 <div class="country-details">
-    <img src={data.flags.svg} alt="" height=300px/>
+    <img src={data.flags.svg} alt="" height={300}/>
     <div class="text-details">
         <p><b>Native Name: </b>{data.name.common}</p>
         <p><b>Population: </b>{data.population}</p>
