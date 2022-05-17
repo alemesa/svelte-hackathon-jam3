@@ -11,10 +11,8 @@
     // export let flags;
 
   import { pinnedList } from '../pinned.js';
-  
-  export let isPinned;
 
-  isPinned = $pinnedList.some((item) => item.code === code);
+  console.log($pinnedList)
 
   function pinCountry(code, country) {
     const isDuplicate = $pinnedList.some((item) => item.code === code);
@@ -35,7 +33,7 @@
     <h1>Country Name</h1>
     <div class="btns">
         <button on:click={() => unpinCountry(data.code)}>Unpin it {data.code}</button>
-        <button on:click={() => pinCountry(data.code)}>Pin it {data.code}</button>
+        <button on:click={() => pinCountry(data.code, data)}>Pin it {data.code}</button>
     </div>
 </div>
 
